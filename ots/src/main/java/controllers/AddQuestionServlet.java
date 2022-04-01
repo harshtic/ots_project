@@ -18,7 +18,8 @@ public class AddQuestionServlet extends HttpServlet {
 		String answer = request.getParameter("answer");
 		int marks = Integer.parseInt(request.getParameter("marks"));
 		String time = request.getParameter("time");
-		System.out.println("add question");
+		
+		
 		
 		
 	}
