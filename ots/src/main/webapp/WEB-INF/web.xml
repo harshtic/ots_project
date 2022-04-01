@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+  version="4.0"
+  metadata-complete="true">
+
+  <display-name>Welcome to Tomcat</display-name>
+  <description>
+     Welcome to Tomcat
+  </description>
+  <servlet>
+  <servlet-name>ots1</servlet-name>
+  <servlet-class>controllers.TeacherSignUpServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>ots1</servlet-name>
+  <url-pattern>/teacherSignUp.do</url-pattern>
+  </servlet-mapping>  
+  
+   <servlet>
+  <servlet-name>ots2</servlet-name>
+  <servlet-class>controllers.TeacherLoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>ots2</servlet-name>
+  <url-pattern>/teacherLogin.do</url-pattern>
+  </servlet-mapping> 
+  
+  <servlet>
+  <servlet-name>ots3</servlet-name>
+  <servlet-class>controllers.AccountActivationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>ots3</servlet-name>
+  <url-pattern>/activate.do</url-pattern>
+  </servlet-mapping> 
+	
+	 <servlet>
+  <servlet-name>ots4</servlet-name>
+  <servlet-class>controllers.CreateExamServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>ots4</servlet-name>
+  <url-pattern>/createExam.do</url-pattern>
+  </servlet-mapping>
+
+ <servlet>
+  <servlet-name>ots5</servlet-name>
+  <servlet-class>controllers.AddQuestionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>ots5</servlet-name>
+  <url-pattern>/addque.do</url-pattern>
+  </servlet-mapping>
+  
+</web-app>

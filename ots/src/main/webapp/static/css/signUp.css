@@ -1,0 +1,141 @@
+/* Resetting default styles */
+
+*,
+*::before,
+*::after {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+html {
+	font-size: 62.5%;
+}
+
+:root {
+	--error-color: #e74c3c;
+	--success-color: #2ecc71;
+}
+/* signup page container */
+.main-page {
+	height: 100vh;
+	/* width: 100vw; */
+	background: #fbfbfb;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* signup box and headings */
+
+.signup-box {
+	/* width: 42vw; */
+	min-width: 400px;
+	/* min-height: 80vh; */
+	background: #fff;
+	border-radius: 20px;
+	padding: 3rem;
+}
+
+.welcome-heading {
+	font-size: 2rem;
+	text-transform: uppercase;
+	letter-spacing: 1.6px;
+	font-weight: 500;
+	display: block;
+	/* padding-top: 2rem; */
+	text-align: center;
+}
+
+.signup-line {
+	font-size: 1.6rem;
+	font-weight: 300;
+	padding-top: 1.4rem;
+	text-align: center;
+}
+
+/* Signup form */
+
+.signup-form-container {
+	margin-top: 5rem;
+}
+
+.form-field-container {
+	margin: 0.5rem auto;
+	height: 6rem;
+	margin-bottom: 2rem;
+	position: relative;
+}
+
+.form-field-label {
+	font-size: 1.2rem;
+	display: block;
+	font-weight: 500;
+	position: absolute;
+	top: 8px;
+	transition: 0.25s all;
+}
+
+.form-field-input {
+	width: 100%;
+	height: 3.2rem;
+	display: block;
+	padding: 4px 1rem;
+	border: 0;
+	border-bottom: 1px solid gray;
+	padding-left: 2px;
+	outline: 0;
+}
+
+.form-field-input:focus + .form-field-label,
+.form-field-input:not(:placeholder-shown) + .form-field-label {
+	color: brown;
+	top: -12px;
+	font-size: 1.1rem;
+	padding-bottom: 20px;
+	display: block;
+	left: 1px;
+	/* font-weight: 600; */
+}
+
+.form-submit-button {
+	width: 100%;
+	text-align: center;
+	padding: 1rem 2px;
+	border: none;
+	border-radius: 1rem;
+	cursor: pointer;
+	margin-bottom: 2rem;
+}
+.signup-page-login-link {
+	font-size: 1.3rem;
+	text-align: center;
+}
+.signup-page-login-link span {
+	color: #1877f2;
+	text-decoration: underline;
+	font-size: 1.3rem;
+	cursor: pointer;
+}
+.form-field-input-container small {
+	position: absolute;
+	bottom: 5px;
+	left: 1px;
+	visibility: hidden;
+	color: var(--error-color);
+}
+.form-field-input-container.success .form-field-input {
+	border-bottom: 1px solid var(--success-color);
+}
+
+.form-field-input-container.error .form-field-input {
+	border-bottom: 1px solid var(--error-color);
+}
+
+.form-field-input-container.error small {
+	visibility: visible;
+}
+
+.error-message {
+	font-size: 1.2rem;
+}
