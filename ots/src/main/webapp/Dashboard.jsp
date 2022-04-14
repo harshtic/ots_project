@@ -1,3 +1,7 @@
+<%@ page import ="models.Teacher" %>
+<%@ page import ="models.Student" %>
+<%@ page import ="java.util.ArrayList" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,6 +37,17 @@
 
     
     <title>Document</title>
+    <% 
+    
+    	HttpSession session1 = request.getSession();
+    	Teacher teacher = (Teacher)session1.getAttribute("teacher");
+    	if(teacher==null){
+    		response.sendRedirect("login.jsp");
+    	}
+    	
+    	ArrayList<Student> student = new Student().getAllStudent(teacher);
+    
+    %>
 </head>
 <body>
     <div class="container-fluid">
@@ -50,18 +65,15 @@
             <div class="col-md-10  gx-0" style="margin-left:-15px;">
                 <h2 class="navy text-white text-center py-2">Dashboard</h2>
                 <div class="dash pt-2" style="margin-top: -10px; height: 100%;">
-                   
                    <div class="tab d-flex">
                     <div class="card bg-light m-4" style="width:42rem; height: 25rem;">
                         <div class="card-body " style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                             <h2 class="">Exam Stats</h2>
-                            <hr>
-                            
+                            <hr> 
                         <a href="#" style="font-size: 1.5rem;" class="m-3 py-3 px-4 btn border-2 border-dark text-decoration-none text-white font-weight-bold bg-primary">Total Exams        <i class="fas fa-calculator  pl-5 pr-1"></i> <br><span class="float-left ml-1" style="font-size: 2rem;">45</span></a>
                         <a href="#" style="font-size: 1.5rem;" class="m-3 py-3 px-4 btn border-2 border-dark text-decoration-none text-white font-weight-bold darkgreen">Exams Completed    <i class="far fa-check pl-2"></i> <br><span class="float-left ml-1" style="font-size: 2rem;">45</span></a>
-                        <a href="#" style="font-size: 1.5rem;" class="m-3 py-3 px-4 btn border-2 border-dark text-decoration-none text-white font-weight-bold orange">All Students<i class="fas fa-users pl-5"></i> <br><span class="float-left ml-1" style="font-size: 2rem;">45</span></a>
+                        <a href="Add_student.jsp" style="font-size: 1.5rem;" class="m-3 py-3 px-4 btn border-2 border-dark text-decoration-none text-white font-weight-bold orange">All Students<i class="fas fa-users pl-5"></i> <br><span class="float-left ml-1" style="font-size: 2rem;"><%=student.size() %></span></a>
                         <a href="#" style="font-size: 1.5rem;" class="m-3 py-3 px-4 btn border-2 border-dark text-decoration-none text-white font-weight-bold bg-secondary">Upcoming Exams    <i class="fas fa-calendar-alt pl-3 "></i> <br><span class="float-left ml-1" style="font-size: 2rem;">45</span></a>
-                       
                         </div>
                     </div>
                     <div class="card bg-light m-4" style="width:30rem; height: 15rem;">
@@ -109,6 +121,21 @@
             
             
         </div>
+        
+        <script type="text/javascript">
+        let timer=4;
+        var set = setInterval(()=>{
+			console.log("Time left : "+ timer);
+			timer--;
+			if(timer<0){
+				clearInterval(set);
+			}
+		},1000)
+        	setTimeout(()=>{
+        		location.reload();	
+        	},5000)
+        	
+        </script>
    
     
 </body>

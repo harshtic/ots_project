@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="font-awesome.css">
+    <title>Document</title>
+    <script>
+     
+       let t3 = document.getElementById('t3');
+       let t=10;
+            let set = setInterval((t)=>{
+               t3.innerText=t;
+               t--;
+               alert(t);
+               if(t<0){
+                   alert('time is over');
+                   clearInterval(set);
+               }
+            },1000);
+     
+    </script>
+</head>
+<body>
+    <div class="t2">
+        Time Left :<h2 id="t3"></h2>
+    </div>
+</body>
+</html>

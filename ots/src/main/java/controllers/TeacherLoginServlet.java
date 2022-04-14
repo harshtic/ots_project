@@ -20,13 +20,12 @@ public class TeacherLoginServlet extends HttpServlet {
 		if(check) {
 			HttpSession session = request.getSession();
 			session.setAttribute("teacher",teacher);
+			session.setMaxInactiveInterval(1800);
+			
 			response.sendRedirect("Dashboard.jsp");
-		}
+			}
 		else {
 			response.sendRedirect("login.jsp");
 		}
-		
-		
 	}
-
 }

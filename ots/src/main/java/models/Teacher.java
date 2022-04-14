@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.jasypt.util.password.StrongPasswordEncryptor;
+
 
 
 public class Teacher {
@@ -78,29 +80,31 @@ public class Teacher {
 
 		return flag;
 	}
-	
-	
 	public boolean login(String email,String pass) {
 		boolean check=false;
 		Connection con = null;
 		try{
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/OTS?user=root&password=1234");
-
-			String query = "select name,email,password,contact,institute from teacher where email=? and (password=? and status_id=1)";
-
+			String query = "select name,email,password,contact,institute,teacher_id from teacher where email=? and status_id=1";
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setString(1, email);
-			pst.setString(2, pass);
 			ResultSet rs=pst.executeQuery();
-			while(rs.next()) {
-				check=true;
-				this.name=rs.getString(1);
-				this.email=rs.getString(2);
-				this.password=rs.getString(3);
-				this.contact=rs.getString(4);
-				this.institute=rs.getString(5);
-			}
+				if(rs.next()) {
+					String encPassword = rs.getString(3);
+					StrongPasswordEncryptor spe = new StrongPasswordEncryptor();
+					if(spe.checkPassword(pass,encPassword)) {
+						check=true;
+						System.out.println("login");
+						this.name=rs.getString(1);
+						this.email=rs.getString(2);
+						this.contact=rs.getString(4);
+						this.institute=rs.getString(5);
+						this.teacherId=rs.getInt(6);
+					}
+				}
+				
+			
 		}catch(SQLException|ClassNotFoundException e){
 			e.printStackTrace();
 		}
@@ -120,7 +124,8 @@ public class Teacher {
 			
 			pst.setString(1,name);
 			pst.setString(2,email);
-			pst.setString(3,password);
+			StrongPasswordEncryptor spe = new StrongPasswordEncryptor();
+			pst.setString(3,spe.encryptPassword(password));
 			pst.setString(4,contact);
 			pst.setString(5,institute);
 			pst.setString(6,activationCode);

@@ -55,4 +55,25 @@
   <url-pattern>/addque.do</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  <servlet-name>ots6</servlet-name>
+  <servlet-class>controllers.AddStudentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>ots6</servlet-name>
+  <url-pattern>/addStudent.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>ots7</servlet-name>
+  <servlet-class>controllers.SendMailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>ots7</servlet-name>
+  <url-pattern>/send_mail.do</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
 </web-app>

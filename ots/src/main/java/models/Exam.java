@@ -3,7 +3,9 @@ package models;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Exam {
 	private Integer examId;
@@ -28,6 +30,11 @@ public class Exam {
 		this.endTime = endTime;
 	}
 	
+	public Exam(int examId) {
+		this.examId=examId;
+	}
+
+
 	public boolean saveExam() {
 		Connection con = null;
 		boolean flag = false;
@@ -38,7 +45,7 @@ public class Exam {
 		
 			String query = "insert into exam(exam,start_time,end_time,exam_date,teacher_id) values (?,?,?,?,?)";
 
-			PreparedStatement pst = con.prepareStatement(query);
+			PreparedStatement pst = con.prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
 			System.out.println(examName+"===== "+examDate);
 			
 			pst.setString(1, examName);
@@ -49,8 +56,12 @@ public class Exam {
 			int res = pst.executeUpdate();
 			if(res==1) {
 				flag = true;
+				ResultSet rs = pst.getGeneratedKeys();
+				if(rs.next()){
+					examId = rs.getInt(1);
+					
+				}
 			}
-
 		}catch(SQLException|ClassNotFoundException e){
 			e.printStackTrace();
 		}

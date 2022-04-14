@@ -1,3 +1,4 @@
+<%@ page import ="models.Exam" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,29 +53,43 @@
                    <div class="col-md-6 offset-2">
                     <div class="dash pt-2 m-5" style="margin-top: -10px; height: 100%;">
                        <div class="card rounded-2 bg-light">
+                          
                            <div class="card-body" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-                            <form action="addque.do" class="mx-5">
+                          
+                          	
+                            <form action="addque.do" method="post" class="mx-5">
+                            	<% 
+                            	HttpSession session1 = request.getSession();
+                            	Exam exam = (Exam)session1.getAttribute("exam");
+                            	
+                     
+                          		
+                          	%>
                                 <div class="form-group">
                                   <label for="question">Question</label>
                                  <textarea name="question" id="" cols="50" rows="2" class="form-control" placeholder="Enter question"></textarea>
                                 </div>
+                              		    <div class="form-group">
+									 <input type="number"
+												class="form-control" name="examId" value="<%=exam.getExamId() %>" style="display:none;">
+										</div>
+            
 										<div class="form-group">
 											<label for="option1">option1</label> <input type="text"
-												class="form-control" name="option1" placeholder="Enter option1">
+												class="form-control" name="option" placeholder="Enter option1">
 										</div>
 										<div class="form-group">
 											<label for="option2">option2</label> <input type="text"
-												class="form-control" name="option2" placeholder="Enter option2">
+												class="form-control" name="option" placeholder="Enter option2">
 										</div>
 										<div class="form-group">
 											<label for="option3">option3</label> <input type="text"
-												class="form-control" name="option3" placeholder="Enter option3">
+												class="form-control" name="option" placeholder="Enter option3">
 										</div>
 										<div class="form-group">
 											<label for="option4">option4</label> <input type="text"
-												class="form-control" name="option4" placeholder="Enter option4">
+												class="form-control" name="option" placeholder="Enter option4">
 										</div>
-
 									<div class="form-group">
                                     <label for="answer">Answer</label>
                                     <input type="text" name="answer" class="form-control" placeholder="Enter Answer">

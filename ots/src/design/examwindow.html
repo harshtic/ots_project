@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="font-awesome.css">
+    <title>Document</title>
+    <style>
+        body {
+          background-image: url('watermark.png');
+          background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+        }
+        </style>
+</head>
+<body>
+   <div class="head bg-dark py-2">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 text-white">
+                    <h2>Online Test System</h2>
+                </div>
+                <div class="col-md-4">
+                    <a href="#" class="btn-sm btn-light ml-5">Instruction</a>
+                </div>
+                <div class="col-md-4 text-white ">
+                    
+                    <div class="float-right">
+                        <h6>Harsh Agrawal</h6>
+                        TIME 00:10:12
+                    </div>
+                </div>
+            </div>
+        </div>
+   </div>
+
+   <div class="que-panel mt-4">
+       <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <span class="mx-3">QUESTION  <b> 22</b></span><span class="ml-3">Subject <b> Aptitude</b></span>
+                <h5 class="float-right">Marks 1</h5>
+
+                <form action="save_response.do" method="POST" class="mt-5 ml-3">
+                <h5 class="mb-4">Which variable is not valid in java ?</h5>
+                    <input type="radio" name="select" value="Var"><label  class="pl-2 font-weight-normal" for="Var">var</label><br><br>
+                    <input type="radio" name="select" value="char"><label class="pl-2 font-weight-normal" for="char">char</label><br><br>
+                    <input type="radio" name="select" value="int"><label  class="pl-2 font-weight-normal" for="int">int</label><br><br>
+                    <input type="radio" name="select" value="byte"><label class="pl-2 font-weight-normal" for="byte">byte</label><br><br>
+                </form>
+            </div>
+            <div class="col-md-4 ">
+                <div class="card bg-light m-4" style="width:17rem; height: 17rem;">
+                    <div class="card-body " style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                       <span class="font-weight-bold mx-3 d-block my-4"><i class="border rounded border-success bg-success px-2 py-1 mr-3">21</i>Answered</span>
+                       <span class="font-weight-bold mx-3 d-block my-4"><i class="border rounded border-danger bg-danger px-2 py-1 mr-3">21</i>Not Answered</span>
+                       <span class="font-weight-bold mx-3 d-block my-4"><i class="border rounded border-warning bg-warning px-2 py-1 mr-3">21</i>Viewed</span>
+                       <span class="font-weight-bold mx-3 d-block my-4"><i class="border rounded border-secondary bg-secondary px-2 py-1 mr-3">21</i>Not Viewed</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+       </div>
+   </div>
+
+   <div class="foot bg-dark fixed-bottom py-2">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-4 offset-4">
+                  <a href="#" class=" btn-sm btn-warning px-5 rounded-1">Clear Response</a>
+                  <a href="#" class=" btn-sm btn-success px-5 rounded-1">Save</a>
+              </div>
+          </div>
+      </div>
+   </div>
+
+</body>
+</html>
